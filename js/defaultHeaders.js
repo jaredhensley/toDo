@@ -1,7 +1,10 @@
-angular.module('toDo').factory('httpRequestInterceptor', function () {
+angular.module('todo').factory('httpRequestInterceptor', function () {
   return {
     request: function (config) {
-      config.headers = {'X-Parse-Application-Id': '5oA4oab0RNwHkfRrXt5WlMqDnzUu6bcmpf4P2uKy', 'X-Parse-REST-API-Key': 'ZIKuhgCABMrP0kLnSMlEYWYlljNWtHnJzYaKwWc8'}
+      config.headers = {
+        'X-Parse-Application-Id': '8ptdhJqmvSE6JLH0DPK5CKy9unouE7ztFYzUGWZ4',
+        'X-Parse-REST-API-Key': 'r9OiyQDGZMzknR7XMnkMSVu5QvMppQMPGN3orVhk'
+      }
       return config;
     }
   };

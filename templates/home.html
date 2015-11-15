@@ -1,1 +1,13 @@
-{{test}}
+<h1>Todo Home</h1>
+<form>
+  <input type='text' placeholder='New Todo' ng-model='newTodo'/>
+  <button ng-click='postTodo()' type='submit'>Submit Todo</button>
+</form>
+<h1>Todos</h1>
+<div class='todoList'>
+  <ul>
+    <li ng-repeat='todo in todosArr'>
+      {{todo.todo}}
+    </li>
+  </ul>
+</div>
