@@ -33,13 +33,14 @@ angular.module('todo').service('parseService', function($http, $q, parse){
   }
 
   this.getTodo = function(id){
+    console.log(id)
     var dfd = $q.defer();
     $http({
       method: 'GET',
       url: parse.url + '/' + id
     }).then(function(res){
       console.log(res);
-      dfd.resolve(res)
+      dfd.resolve(res.data)
     })
     return dfd.promise
   }
