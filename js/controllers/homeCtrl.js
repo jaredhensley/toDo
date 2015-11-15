@@ -1,10 +1,14 @@
 angular.module('todo').controller('homeCtrl', function($scope, todos, parseService){
   
-  $scope.todosArr = todos;
+  $scope.todos = todos;
 
   $scope.postTodo = function(){
     console.log($scope.newTodo)
-    parseService.postTodo({title: $scope.newTodo})
+    todoObj = {
+      title: $scope.newTodo,
+      status: 'new'
+    }
+    parseService.postTodo(todoObj)
       .then(function(res){
         if(res.status === 201) {
           $scope.getTodos()
@@ -31,7 +35,7 @@ angular.module('todo').controller('homeCtrl', function($scope, todos, parseServi
 
   $scope.getTodos = function(){
     parseService.getTodos().then(function(todos){
-      $scope.todosArr = todos;
+      $scope.todos = todos;
     })
   }
 

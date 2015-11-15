@@ -4,10 +4,35 @@
   <button ng-click='postTodo()' type='submit'>Submit Todo</button>
 </form>
 <h1>Todos</h1>
+<hr/>
 <div class='todoList'>
+  <h3>New</h3> 
   <ul>
-    <li ng-repeat='todo in todosArr'>
-      ===> {{todo.title}} status: {{todo.status}}
+    <li ng-repeat='todo in todos.newTodos'>
+      <h3>{{todo.title}}<h3> 
+      status: {{todo.status}}
+      <button ng-click='removeTodo(todo.objectId)'>Remove Todo</button>
+      <button ng-click='advanceTodo(todo)'>Advance Todo</button>
+    </li>
+  </ul>
+</div>
+<div class='todoList'>
+  <h3>In Progress</h3> 
+  <ul>
+    <li ng-repeat='todo in todos.inProgTodos'>
+      <h3>{{todo.title}}<h3> 
+      status: {{todo.status}}
+      <button ng-click='removeTodo(todo.objectId)'>Remove Todo</button>
+      <button ng-click='advanceTodo(todo)'>Advance Todo</button>
+    </li>
+  </ul>
+</div>
+<div class='todoList'>
+  <h3>Done</h3>
+  <ul>
+    <li ng-repeat='todo in todos.doneTodos'>
+      <h3>{{todo.title}}<h3> 
+      status: {{todo.status}}
       <button ng-click='removeTodo(todo.objectId)'>Remove Todo</button>
       <button ng-click='advanceTodo(todo)'>Advance Todo</button>
     </li>

@@ -7,8 +7,27 @@ angular.module('todo').service('parseService', function($http, $q, parse){
       url: parse.url
     }).then(function(res){
       var holder = res.data.results
-      console.log('holderArr:', holder);
-      dfd.resolve(holder);
+      var resolveObj = {
+        newTodos: [],
+        inProgTodos: [],
+        doneTodos: [],
+      }
+      for (var i = 0; i < holder.length; i++) {
+        var todo = holder[i]
+        switch(todo.status){
+          case 'new':
+            resolveObj.newTodos.push(todo);
+            break;
+          case 'inProg':
+            resolveObj.inProgTodos.push(todo);
+            break;
+          case 'done':
+            resolveObj.doneTodos.push(todo);
+            break;
+        }
+      };
+      console.log(resolveObj)
+      dfd.resolve(resolveObj);
     })
     return dfd.promise
   }
@@ -26,7 +45,6 @@ angular.module('todo').service('parseService', function($http, $q, parse){
   }
 
   this.postTodo = function(todo){
-    todo.status = 'new';
     return $http({
       method: 'POST',
       url: parse.url, 
