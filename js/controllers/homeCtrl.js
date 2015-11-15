@@ -3,7 +3,6 @@ angular.module('todo').controller('homeCtrl', function($scope, todos, parseServi
   $scope.todos = todos;
 
   $scope.postTodo = function(){
-    console.log($scope.newTodo)
     todoObj = {
       title: $scope.newTodo,
       status: 'new'

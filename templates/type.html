@@ -1,1 +1,6 @@
-{{test}}
+<h1>{{status}} Todos</h1>
+<ul>
+  <li ng-repeat='todo in todos'>
+    <a ui-sref="todo({todoId: todo.objectId})">{{todo.title}}</a>
+  </li>
+</ul>

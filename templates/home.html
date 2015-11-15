@@ -6,10 +6,12 @@
 <h1>Todos</h1>
 <hr/>
 <div class='todoList'>
-  <h3>New</h3> 
+  <a ui-sref='list({status: "new"})'>
+    <h3>New</h3>     
+  </a>
   <ul>
     <li ng-repeat='todo in todos.newTodos'>
-      <h3>{{todo.title}}<h3> 
+      <a ui-sref='todo({todoId: todo.objectId})'><h3>{{todo.title}}<h3></a>
       <button ng-click='removeTodo(todo.objectId)'>Remove Todo</button>
       <button ng-click='advanceTodo(todo)'>Advance Todo</button>
     </li>
@@ -17,7 +19,9 @@
 </div>
 <hr/>
 <div class='todoList'>
-  <h3>In Progress</h3> 
+  <a ui-sref='list({status: "inProg"})'>
+    <h3>In Progress</h3> 
+  </a>
   <ul>
     <li ng-repeat='todo in todos.inProgTodos'>
       <a ui-sref='todo({todoId: todo.objectId})'><h3>{{todo.title}}<h3></a>
@@ -28,10 +32,12 @@
 </div>
 <hr/>
 <div class='todoList'>
-  <h3>Done</h3>
+  <a ui-sref="list({status: 'done'})">
+    <h3>Done</h3>
+  </a>
   <ul>
     <li ng-repeat='todo in todos.doneTodos'>
-      <h3>{{todo.title}}<h3>
+      <a ui-sref='todo({todoId: todo.objectId})'><h3>{{todo.title}}<h3></a>
       <button ng-click='removeTodo(todo.objectId)'>Remove Todo</button>
       <button ng-click='advanceTodo(todo)'>Advance Todo</button>
     </li>

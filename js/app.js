@@ -24,7 +24,12 @@ angular.module('todo', ['firebase', 'ui.router'])
       .state('list',{
         url: '/list/:status',
         controller: 'typeCtrl',
-        templateUrl: 'templates/type.html'
+        templateUrl: 'templates/type.html',
+        resolve: {
+          todos: function(parseService){
+            return parseService.getTodos();
+          }
+        }
       })
       .state('todo', {
         url: '/todo/:todoId',
