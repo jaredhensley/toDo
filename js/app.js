@@ -26,7 +26,16 @@ angular.module('todo', ['firebase', 'ui.router'])
         controller: 'typeCtrl',
         templateUrl: 'templates/type.html'
       })
-      .state('/todo')
+      // .state('todo', {
+      //   url: '/todo/:todoId',
+      //   templateUrl: 'templates/todo.html',
+      //   controller: 'todoCtrl',
+      //   resolve: {
+      //     todo: function(){
+      //       return parseService.getTodo();
+      //     }
+      //   }
+      // })
   })
 
 

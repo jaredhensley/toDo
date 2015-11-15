@@ -7,7 +7,9 @@
 <div class='todoList'>
   <ul>
     <li ng-repeat='todo in todosArr'>
-      {{todo.todo}}
+      ===> {{todo.title}} status: {{todo.status}}
+      <button ng-click='removeTodo(todo.objectId)'>Remove Todo</button>
+      <button ng-click='advanceTodo(todo)'>Advance Todo</button>
     </li>
   </ul>
 </div>

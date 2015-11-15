@@ -1,9 +1,9 @@
-angular.module('todo').factory('httpRequestInterceptor', function () {
+angular.module('todo').factory('httpRequestInterceptor', function (parse) {
   return {
     request: function (config) {
       config.headers = {
-        'X-Parse-Application-Id': '8ptdhJqmvSE6JLH0DPK5CKy9unouE7ztFYzUGWZ4',
-        'X-Parse-REST-API-Key': 'r9OiyQDGZMzknR7XMnkMSVu5QvMppQMPGN3orVhk'
+        'X-Parse-Application-Id': parse.appId,
+        'X-Parse-REST-API-Key': parse.restKey
       }
       return config;
     }
